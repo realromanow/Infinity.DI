@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using UniRx;
 using UnityEngine;
 
 namespace Plugins.Infinity.DI.Binding {
@@ -7,40 +6,23 @@ namespace Plugins.Infinity.DI.Binding {
 		public TItem item { get; private set; }
 		public string itemId { get; private set; }
 
-		private readonly List<Action> _subscriptions = new();
-		
-		private event Action onDataUpdate;
-		
+		protected readonly CompositeDisposable bindingDisposable = new();
+
 		private void OnDestroy () {
 			RegisterDestroy();
 		}
 
-		protected virtual void RegisterInitialize () {
-			onDataUpdate += OnUpdate;
-		}
+		protected virtual void RegisterInitialize () {}
 
 		protected virtual void RegisterDestroy () {
-			foreach (var subscription in _subscriptions) {
-				onDataUpdate -= subscription;
-			}
-			
-			onDataUpdate -= OnUpdate;
+			bindingDisposable.Dispose();
 		}
-		
-		protected virtual void OnUpdate() {}
 
 		public void SetItem (TItem itemModel, string id) {
-			this.item = itemModel;
-			this.itemId = id;
+			item = itemModel;
+			itemId = id;
 
 			RegisterInitialize();
-			OnUpdate();
-		}
-		
-		protected void SubscribeToUpdate (Action action) {
-			_subscriptions.Add(action);
-			
-			action += onDataUpdate;
 		}
 	}
 }
