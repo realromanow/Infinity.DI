@@ -1,10 +1,9 @@
-using Plugins.Infinity.DI.App;
-using Plugins.Infinity.DI.Setups;
+using Plugins.Modern.DI.Setups;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-namespace Plugins.Infinity.DI.Components {
+namespace Plugins.Modern.DI.Components {
 	public abstract class BaseMonoInjectComponent : MonoBehaviour {
 		private void Start () {
 			Inject(AppSetup.liveInstance.appComponentsRegistry.items);

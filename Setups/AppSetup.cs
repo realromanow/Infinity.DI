@@ -1,10 +1,10 @@
-﻿using Plugins.Infinity.DI.App;
-using Plugins.Infinity.DI.Units;
+﻿using Plugins.Modern.DI.App;
+using Plugins.Modern.DI.Units;
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Plugins.Infinity.DI.Setups {
+namespace Plugins.Modern.DI.Setups {
 	[CreateAssetMenu(menuName = "AppSetup", fileName = "AppSetup")]
 	public class AppSetup : ScriptableObject {
 		public AppComponentsRegistry appComponentsRegistry { get; } = new();

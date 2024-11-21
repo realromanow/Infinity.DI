@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Plugins.Infinity.DI.App {
+namespace Plugins.Modern.DI.App {
 	public class AppComponentsRegistry {
 		private readonly List<object> _items = new();
 		

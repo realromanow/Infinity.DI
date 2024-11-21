@@ -1,8 +1,8 @@
-﻿using Plugins.Infinity.DI.Setups;
+﻿using Plugins.Modern.DI.Setups;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Plugins.Infinity.DI.App {
+namespace Plugins.Modern.DI.App {
 	public class AppSetupRegistry : MonoBehaviour {
 		[FormerlySerializedAs("setup")]
 		[SerializeField]
