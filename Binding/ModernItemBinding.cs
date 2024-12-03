@@ -2,9 +2,13 @@
 using UnityEngine;
 
 namespace Plugins.Modern.DI.Binding {
-	public class ItemBinding<TItem> : MonoBehaviour {
+	public class ModernItemBinding<TItem> : MonoBehaviour {
+		[SerializeField]
+		private string _bindId;
+		
 		public TItem item { get; private set; }
 		public string itemId { get; private set; }
+		public string bindId => _bindId;
 
 		protected readonly CompositeDisposable bindingDisposable = new();
 

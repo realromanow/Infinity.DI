@@ -4,9 +4,9 @@ using System.Reflection;
 using UnityEngine;
 
 namespace Plugins.Modern.DI.Components {
-	public abstract class BaseMonoInjectComponent : MonoBehaviour {
+	public abstract class ModernBaseMonoInjectComponent : MonoBehaviour {
 		private void Start () {
-			Inject(AppSetup.liveInstance.appComponentsRegistry.items);
+			Inject(ModernAppSetup.liveInstance.modernComponentsRegistry.items);
 		}
 
 		private void Inject (params object[] args) {

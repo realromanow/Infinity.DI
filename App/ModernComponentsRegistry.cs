@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 
 namespace Plugins.Modern.DI.App {
-	public class AppComponentsRegistry {
+	public class ModernComponentsRegistry {
 		private readonly List<object> _items = new();
 		
 		public object[] items => _items.ToArray();

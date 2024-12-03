@@ -6,25 +6,25 @@ using UnityEngine.Serialization;
 
 namespace Plugins.Modern.DI.Setups {
 	[CreateAssetMenu(menuName = "AppSetup", fileName = "AppSetup")]
-	public class AppSetup : ScriptableObject {
-		public AppComponentsRegistry appComponentsRegistry { get; } = new();
+	public class ModernAppSetup : ScriptableObject {
+		public ModernComponentsRegistry modernComponentsRegistry { get; } = new();
 
 		[FormerlySerializedAs("units")]
 		[SerializeField]
-		private AppUnit[] _units;
+		private ModernAppUnit[] _units;
 		
-		public static AppSetup liveInstance { get; private set; }
+		public static ModernAppSetup liveInstance { get; private set; }
 		
 		public void RegisterSetup () {
 			liveInstance = this;
 			
 			foreach (var appUnit in _units) {
-				appUnit.SetupUnit(appComponentsRegistry);
+				appUnit.SetupUnit(modernComponentsRegistry);
 			}
 		}
 
 		public void RegisterDestroy () {
-			foreach (var item in appComponentsRegistry.items) {
+			foreach (var item in modernComponentsRegistry.items) {
 				if (item is IDisposable disposable) {
 					disposable.Dispose();
 				}
